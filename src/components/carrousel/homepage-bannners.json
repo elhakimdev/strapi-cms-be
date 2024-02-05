@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_carrousel_homepage_bannners",
+  "info": {
+    "displayName": "Homepage Bannners",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "img_title": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "meta": {
+      "type": "string"
+    }
+  }
+}
