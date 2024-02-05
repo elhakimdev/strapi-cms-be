@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_tickets",
+  "info": {
+    "singularName": "support-ticket",
+    "pluralName": "support-tickets",
+    "displayName": "Support Ticket"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "High",
+        "Medium ",
+        "Low"
+      ],
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Open",
+        "In Progress",
+        "Closed"
+      ],
+      "default": "Open",
+      "required": true
+    },
+    "subject": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

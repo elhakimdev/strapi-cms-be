@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_ticket_categories",
+  "info": {
+    "singularName": "support-ticket-category",
+    "pluralName": "support-ticket-categories",
+    "displayName": "Support Ticket Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    }
+  }
+}
