@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faq-category",
     "pluralName": "faq-categories",
-    "displayName": "FaqCategory"
+    "displayName": "Faq Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
         }
       },
       "type": "string"
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "faq_category"
     }
   }
 }

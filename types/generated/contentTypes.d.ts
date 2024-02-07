@@ -1030,6 +1030,11 @@ export interface ApiFaqFaq extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    faq_category: Attribute.Relation<
+      'api::faq.faq',
+      'manyToOne',
+      'api::faq-category.faq-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1051,7 +1056,8 @@ export interface ApiFaqCategoryFaqCategory extends Schema.CollectionType {
   info: {
     singularName: 'faq-category';
     pluralName: 'faq-categories';
-    displayName: 'FaqCategory';
+    displayName: 'Faq Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1068,6 +1074,11 @@ export interface ApiFaqCategoryFaqCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    faqs: Attribute.Relation<
+      'api::faq-category.faq-category',
+      'oneToMany',
+      'api::faq.faq'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1870,6 +1881,7 @@ export interface ApiTermsOfServiceTermsOfService extends Schema.CollectionType {
     singularName: 'terms-of-service';
     pluralName: 'terms-of-services';
     displayName: 'Terms of Service';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1880,12 +1892,6 @@ export interface ApiTermsOfServiceTermsOfService extends Schema.CollectionType {
     };
   };
   attributes: {
-    content: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     version: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1893,6 +1899,13 @@ export interface ApiTermsOfServiceTermsOfService extends Schema.CollectionType {
         };
       }>;
     effective_date: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.Blocks &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
