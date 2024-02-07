@@ -911,6 +911,45 @@ export interface ApiComplianceCertificationComplianceCertification
   };
 }
 
+export interface ApiContactInfoContactInfo extends Schema.CollectionType {
+  collectionName: 'contact_infos';
+  info: {
+    singularName: 'contact-info';
+    pluralName: 'contact-infos';
+    displayName: 'Contact Info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company_name: Attribute.String;
+    email: Attribute.Email;
+    phone: Attribute.String;
+    fax: Attribute.String;
+    address: Attribute.Text;
+    social_media_links: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToMany',
+      'api::social-media-link.social-media-link'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -1955,6 +1994,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::attendee.attendee': ApiAttendeeAttendee;
       'api::compliance-certification.compliance-certification': ApiComplianceCertificationComplianceCertification;
+      'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::event.event': ApiEventEvent;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
